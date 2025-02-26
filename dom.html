@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 문서 객체 모델</title>
+  </head>
+  <body>
+    <p id="show" style="background-color: blue">
+      <span>클릭하세요!</span>
+    </p>
+
+    <!-- 문서가 로드될 때 글 제목 요소 생성 -->
+    <form name="form1" action="">
+      이름: <input type="text" name="name" autocomplete="off" /><br />
+      <button type="submit" onclick="getName()">버튼</button>
+    </form>
+
+    <!-- attribute(속성) 변경하기 -->
+    <img id="img" src="images/gallery-1.png" alt="이미지-1" /><br />
+    <button onclick="changeImage()">이미지 변경</button>
+    <button onclick="changeSize()">이미지 사이즈 변경</button>
+
+    <!-- 요소 CSS 변경 -->
+    <p id="p1">HELLO!</p>
+
+    <!-- 노드 추가하기 -->
+    <div class="box">
+      <p class="p1">단락1</p>
+      <p class="p2">단락2</p>
+      <!-- <p>새로운 단락!</p> -->
+    </div>
+
+    <!-- javascript -->
+    <script>
+      // DOM 메서드와 프로퍼티
+      // getElementById() 아이디로 요소 선택하기
+      const p = document.getElementById("show");
+
+      p.onclick = function () {
+        // console.log("클릭했음!");
+        this.innerHTML = "클릭했지롱!!";
+        this.style.backgroundColor = "red";
+      };
+
+      // getName()
+      function getName() {
+        // Document 객체 안에 있는 form1
+        // 즉, <form> 요소 안의 name 객체 즉, <input> 요소를 의미한다.
+        // value 속성은 <input> 요소 안에 입력된 텍스트를 의미한다.
+        let text = document.form1.name.value;
+        alert(text);
+      }
+
+      // innerHTML, innerText
+      const x = document.querySelector("#show");
+
+      //    alert(x.innerHTML); // HTML 코드 포함한 내용
+      //    alert(x.innerText); // HTML 코드 제외한 순수한 텍스트
+
+      // attribute(속성) 변경하기
+      function changeImage() {
+        document.querySelector("#img").src = "images/gallery-2.png";
+      }
+
+      function changeSize() {
+        document.querySelector("#img").width = "200";
+      }
+
+      // 요소 CSS 변경
+      const p1 = document.querySelector("#p1");
+      p1.onclick = function () {
+        p1.style.color = "red";
+        p1.style.backgroundColor = "yellow";
+        p1.style.border = "solid 2px blue";
+      };
+
+      // 노드 추가하기
+      const elem = document.createElement("p");
+      console.log(elem);
+      const textNode = document.createTextNode("새로운 단락!");
+
+      elem.appendChild(textNode);
+      document.querySelector(".box").appendChild(elem);
+
+      // 노드 삽입하기
+      const p2 = document.querySelector(".p2");
+      document.querySelector(".box").insertBefore(elem, p2);
+
+      // 노드 삭제하기
+      const _p1 = document.querySelector(".p1");
+      _p1.remove();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터 타입(자료형)</title>
+  </head>
+  <body>
+    <script>
+      // 데이터 타입(자료형)
+      // 1. number(숫자)
+      const a = 3; // 정수(integer)
+      console.log(a); // 3
+      const b = 5.7; // 부동 소수점 숫자(floating point number)
+      const c = 123e3; // 123000
+      const d = 123e-3; // 0.123
+
+      // 2. string(문자열)
+      const text1 = "사과";
+      console.log(text1); // 사과
+      const num1 = 1; // number
+      const num2 = "1"; // string
+
+      const userName = "홍길동";
+      const age = 30;
+      console.log("이름: ", userName); // 홍길동
+      console.log("나이: ", age); // 30
+      // 이름은 userName 이고, 나이는 age살 입니다!
+      const text2 = "이름은 " + userName + "이고, 나이는 " + age + "살 입니다!";
+      document.write(text2 + "<br>");
+
+      // 템플릿 문자열
+      const text3 = `이름은 ${userName}이고, 나이는 ${age}살 입니다!`;
+      document.write(text3 + "<br>");
+
+      // 3. boolean(ture, false)
+      const x = 5 > 3;
+      console.log(x); // true;
+      const y = 5 < 3;
+      console.log(y); // false
+
+      // 4. null(유효하지 않은 데이터)
+
+      // 5. undefined(정의 되지 않은 데이터)
+      // 변수는 선언과 동시에 할당된다.
+      let z;
+      console.log(z); // undefined
+
+      // 6. object(객체)
+      // 프로퍼티와 메서드로 구성되어있다.
+      // 프로퍼티는 키: 값의 쌍
+      // 메서드는 기능(함수)
+      const userInfo = {
+        id: "kdhong",
+        name: "홍길동",
+        age: 25,
+      };
+      console.log(userInfo.id);
+      console.log(userInfo.name);
+      console.log(userInfo.age);
+      const text4 = `이름은 ${userInfo.name}이고, 나이는 ${userInfo.age}살 입니다!`;
+      document.write(text4 + "<br>");
+
+      // 7. array(배열)
+      const contents = ["영상1", "영상2", "타이틀시퀀스", "모션그래픽"];
+      console.log(contents);
+      // index는 0부터 시작
+      console.log(contents[0]); // 영상1
+      console.log(contents[1]); // 영상2
+
+      const portfolio = [
+        {
+          title: "영상1",
+          description: "첫 번째 영상입니다.",
+          video: "비디오 경로",
+        },
+        {
+          title: "영상2",
+          description: "두 번째 영상입니다.",
+          video: "비디오 경로",
+        },
+        {
+          title: "영상3",
+          description: "세 번째 영상입니다.",
+          video: "비디오 경로",
+        },
+        {
+          title: "영상4",
+          description: "네 번째 영상입니다.",
+          video: "비디오 경로",
+        },
+      ];
+      console.log(portfolio[0].title);
+    </script>
+  </body>
+</html>

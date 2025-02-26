@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set 객체</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      // Set 객체 생성
+      const set1 = new Set([2, 3, 5, 5, 6, 7, 7]);
+      console.log(set1);
+
+      let text = "";
+      for (let value of set1) {
+        text += value + "<br>";
+      }
+
+      // add()
+      const set2 = new Set();
+      set2.add("딸기");
+      set2.add("오렌지");
+      set2.add("포도");
+
+      text = "";
+      set2.forEach((value) => {
+        text += value + "<br>";
+      });
+
+      // size
+      text += "Set2의 크기: " + set2.size + "<br>";
+
+      // has()
+      text += `${set2.has("사과")} <br>`;
+      text += set2.has("포도") + "<br>";
+
+      // delete()
+      set2.delete("오렌지");
+
+      set2.forEach((value) => {
+        text += value + "<br>";
+      });
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

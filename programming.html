@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 프로그래밍</title>
+  </head>
+  <body>
+    <script>
+      // 원의 넓이 구하기
+      let area;
+      let r = 8;
+      const pi = 3.14;
+
+      area = r * r * pi;
+      console.log("원의 넓이: ", area);
+
+      r = 7;
+      area = r * r * pi;
+      console.log("원의 넓이: ", area);
+
+      // 함수로 기능을 구현 하자!
+      // 함수정의
+      function hello() {
+        console.log("안녕!");
+      }
+
+      // 함수호출
+      hello();
+      hello();
+
+      // 원의 넓이를 구하는 함수정의
+      function circleArea(r) {
+        let result = r * r * 3.14;
+        return result;
+      }
+
+      // let circleAr;
+      // circleAr = circleArea(7);
+      area = circleArea(6);
+      console.log(area);
+    </script>
+  </body>
+</html>

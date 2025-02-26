@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 스코프</title>
+  </head>
+  <body>
+    <script>
+      // 1. 전역 스코프(global scope)
+      // 전역 스코프에서 선언된 전역 변수는 프로그램 내 어디서든 접근 가능
+      let x = 10;
+      function fnc1() {
+        console.log(x);
+      }
+
+      fnc1();
+      console.log(x);
+
+      // 2. 함수 스코프(function scope)
+      // 함수 스코프에서 선언된 변수를 지역변수
+      // 변수가 선언된 해당 함수 스코프에서만 접근 가능
+      function fnc2() {
+        let x = 12;
+        let y = 7;
+        console.log(x);
+      }
+
+      fnc2();
+      //    console.log(y); // 지역변수 y로 접근 못함
+
+      // 3. 블록 스코프(block scope)
+      function fnc3() {
+        if (true) {
+          let z = 3; // 변수 z는 if문 내, 즉 블록 내부에서 선언
+          console.log(z); // ?
+        }
+        // console.log(z); // 블록 외부에서 변수 z로 접근 못함
+      }
+
+      fnc3();
+    </script>
+  </body>
+</html>

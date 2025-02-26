@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성자 함수의 메서드</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      function Member(id, name, age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.getName = function () {
+          return "나의 이름은" + " " + this.name + "입니다!";
+        };
+      }
+
+      const member1 = new Member("kdhong", "홍길동", 25);
+
+      let text = "";
+      text += member1.id + "<br>";
+      text += member1.getName();
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+  </head>
+  <body>
+    <script>
+      // 2. 할당 연산자
+      let a = 10;
+      console.log(a); // 10
+
+      a += 3; // a = a + 3
+      a -= 1; // a = a - 1
+      a *= 2; // a = a * 2
+      a /= 10; // a = a / 10
+      a %= 5; // a = a % 5
+      a += "하세요!"; // a = a + "하세요!"
+      //   console.log(a);
+
+      // 3. 비교 연산자
+      let c = 3;
+      let d = "3";
+      let e = 5;
+      let f = "5";
+
+      console.log(c == d); // 같다 true
+      console.log(c === d); // 데이터 타입도 같다 false
+      console.log(c != d); // 다르다 false
+      console.log(c !== d); // 데이터 타입은 다르다 true
+      console.log(c > e); // 크다 false
+      console.log(c >= e); // 크거나 같다 false
+
+      // 4. 논리 연산자
+      // &&(AND), ||(OR), !(NOT)
+      console.log(c == d && c < e); // true
+      console.log(c === d && c < e); // false
+      console.log(c === d || c < e); // true
+      console.log(c == d || c > e); // true
+
+      let bool = true;
+      console.log(bool); // ture
+      console.log(!bool); // false
+    </script>
+  </body>
+</html>

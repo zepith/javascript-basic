@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스 기본 구조</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      // 1. 클래스 Member를 정의한다.
+      // 클래스 Member는 프로퍼티 name, age와 메서드 getName()으로 구성된다.
+      class Member {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        getName() {
+          return "이름은" + this.name + "입니다!";
+        }
+        // 정적 메서드
+        static getCountry() {
+          return "한국인입니다!";
+        }
+      }
+
+      // 2. 클래스 Student는 클래스 Member를 확장하여 사용한다.
+      // 클래스 Student에서는 클래스 Member의 프로퍼티와 메서드를 상속 받는다.
+      // 클래스 Student에서도 클래스 Member의 프로퍼티와 메서드를 사용할 수 있다.
+      class Student extends Member {
+        constructor(name, age, school) {
+          // 3. super()메서드는 부모 클래스인 Member()의
+          // 생성자 constructor()를 호출한다.
+          super(name, age);
+          this.school = school;
+        }
+        intro() {
+          return this.getName() + " " + this.school + "학생입니다!";
+        }
+      }
+
+      const member1 = new Member("홍길동", 30);
+      // 4. new 연산자를 이용하여 클래스 Student로부터 객체 student1을 생성
+      // student1객체는 클래스 Student뿐만 아니라 클래스 Member의 자원도 사용가능
+      const student1 = new Student("홍길동", 30, "서울대학교");
+
+      let text = "";
+      text += student1.name + "<br>";
+      text += student1.age + "<br>";
+      text += student1.getName() + "<br>";
+      text += student1.school + "<br>";
+      text += student1.intro() + "<br>";
+      //    text += student1.getCountry();
+      text += Member.getCountry(); // 정적 메서드 사용
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

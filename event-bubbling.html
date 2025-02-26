@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 버블링</title>
+    <style>
+      div,
+      p,
+      img {
+        margin: 10px;
+        border: 1px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>
+        <!-- <img src="images/banner.png" alt="배너" onclick="alert('img 입니다!')" /> -->
+        <!-- <img src="images/banner.png" alt="배너" onclick="fnc(event)" /> -->
+        <img src="images/banner.png" alt="배너" />
+      </p>
+    </div>
+
+    <!-- javascript -->
+    <script>
+      //    function fnc(event) {
+      //     event.stopPropagation(); // 이벤트 버블링 방지
+      //     const target = event.target;
+      //     if (target.tagName === "IMG") {
+      //      alert("img 입니다!");
+      //     }
+      //     console.log(target);
+      //    }
+      const img = document.querySelector("img");
+      img.addEventListener("click", (event) => {
+        if (event.target.tagName === "IMG") {
+          alert("img 입니다!");
+        }
+      });
+    </script>
+  </body>
+</html>

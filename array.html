@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      let text = "";
+
+      // 배열 생성
+      const fruits = [
+        "사과",
+        "딸기",
+        "참외",
+        "포도",
+        "오렌지",
+        "수박",
+        "딸기",
+        "키위",
+      ];
+      const cars = new Array("벤츠", "BMW", "아우디");
+      const videos = [
+        "첫 번째 영상",
+        "두 번째 영상",
+        "세 번째 영상",
+        "네 번째 영상",
+      ];
+      const contents = [
+        {
+          title: "첫 번째 영상",
+          desc: "첫 번째 영상입니다!",
+          createdAt: "2025-01-16",
+          videoPath: "https://picsum.photos/400/400",
+        },
+        {
+          title: "두 번째 영상",
+          desc: "두 번째 영상입니다!",
+          createdAt: "2025-01-16",
+          videoPath: "https://picsum.photos/400/400",
+        },
+        {
+          title: "세 번째 영상",
+          desc: "세 번째 영상입니다!",
+          createdAt: "2025-01-16",
+          videoPath: "https://picsum.photos/400/400",
+        },
+      ];
+
+      text += fruits + "<br>";
+      text += fruits[0] + "<br>";
+      text += fruits[1] + "<br>";
+      text += fruits[2] + "<br>";
+      text += cars + "<br>";
+      text += cars[0] + "<br>";
+
+      // 배열 요소 값의 변경
+      fruits[0] = "키위";
+
+      text += fruits[0] + "<br>";
+
+      // 배열 요소 반복 읽기
+      text = "";
+      text = "<ul>";
+
+      for (let i = 0; i < contents.length; i++) {
+        text += `
+    <li>
+     <div>
+      <img src="${contents[i].videoPath}?random=${i + 1}" alt= "${
+          contents[i].title
+        }" />  
+     </div>    
+     <div>${contents[i].title}</div>    
+     <div>${contents[i].desc}</div>    
+     <div>${contents[i].createdAt}</div>    
+    </li>`;
+      }
+
+      text += "</ul>";
+
+      // join()
+      let str1 = videos.join();
+      let str2 = videos.join("/");
+
+      text = "";
+      text += str1 + "<br>";
+      text += str2 + "<br>";
+
+      // push()
+      let videos2 = videos.push("다섯 번째 영상");
+
+      // pop()
+      let videos3 = videos.pop();
+
+      text = "";
+      text += videos + "<br>";
+      text += videos2 + "<br>"; // videos의 length
+      text += videos3 + "<br>"; // videos의 length
+
+      // splice()
+      let arr;
+      // 인덱스 1인 요소 "두 번째 영상"부터 2개의 요소를 삭제하고,
+      // 그 자리에 "새로운 영상"을 삽입
+      arr = videos.splice(1, 2, "새로운 영상");
+
+      text = "";
+      text += videos + "<br>";
+      text += "-반환값: " + arr + "<br>";
+
+      // indexOf()
+      let index1 = fruits.indexOf("포도");
+      let index2 = fruits.indexOf("딸기");
+      let index3 = fruits.indexOf("오렌지");
+      let index4 = fruits.indexOf("바나나");
+
+      text = "";
+      text += fruits + "<br>";
+      text += "포도 인덱스: " + index1 + "<br>";
+      text += "딸기 인덱스: " + index2 + "<br>";
+      text += "오렌지 인덱스: " + index3 + "<br>";
+      text += "바나나 인덱스: " + index4 + "<br>";
+
+      // includes()
+      let result1 = fruits.includes("키위");
+      let result2 = fruits.includes("파인애플");
+
+      text = "";
+      text += result1 + "<br>";
+      text += result2 + "<br>";
+
+      // slice()
+      // 인덱스 1부터 3사이(3은 포함하지 않음)의 요소 새로운 배열
+      let arr1 = fruits.slice(1, 3);
+      // 인덱스 2부터 끝까지의 요소 새로운 배열
+      let arr2 = fruits.slice(2);
+      // 끝에서 3번째 요소부터 끝에서 2번째 요소 새로운 배열
+      let arr3 = fruits.slice(-3, -1);
+
+      text = "";
+      text += fruits + "<br>"; // 원본 배열
+      text += arr1 + "<br>";
+      text += arr2 + "<br>";
+      text += arr3 + "<br>";
+
+      // find()
+      const scores = [78, 84, 98, 100, 70, 62];
+
+      const getScores = (score) => score >= 90;
+
+      let arr4 = scores.find(getScores);
+
+      text = "";
+      text += scores + "<br>";
+      text += arr4 + "<br>";
+
+      // *** forEach()
+      // 배열.forEach(()=>{})
+      text = "";
+      videos.forEach((video, index) => {
+        text += index + ": " + video + "<br>";
+      });
+
+      // map
+      let arr5 = contents.map((content) => {
+        let text = "";
+        text += content.title + "<br>";
+        text += content.desc + "<br>";
+        text += content.createdAt + "<br>";
+        return text;
+      });
+
+      console.log(arr5);
+
+      // concat()
+      const animal1 = ["사자", "호랑이", "기린", "사슴"];
+      const animal2 = ["펭귄", "코끼리", "토끼"];
+
+      let arr6 = animal1.concat(animal2);
+
+      text = "";
+      text += arr6 + "<br>";
+      text += animal1 + "<br>";
+      text += animal2 + "<br>";
+
+      // 화면 출력
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

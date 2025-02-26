@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout / setInterval</title>
+  </head>
+  <body>
+    <button id="btn1" onclick="setTimeout(fnc2, 3000)">3초 후 실행</button>
+    <button id="btn2" onclick="clearInterval(timer)">타이머 중지</button>
+
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      const btn1 = document.querySelector("#btn1");
+      const btn2 = document.querySelector("#btn2");
+      const p = document.querySelector("#show");
+
+      let timer = setInterval(fnc1, 1000);
+
+      function fnc1() {
+        const date = new Date();
+        p.innerHTML = date;
+      }
+
+      function fnc2() {
+        p.innerHTML = "3초 후 실행!";
+      }
+    </script>
+  </body>
+</html>

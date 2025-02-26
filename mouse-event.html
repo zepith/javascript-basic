@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마우스 이벤트</title>
+    <style>
+      .box {
+        border: 3px solid black;
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- click/dblclick -->
+    <button onclick="showMessage1()">클릭하세요!</button>
+    <button class="btn2">더블 클릭하세요!</button>
+    <p id="show"></p>
+
+    <!-- mouseover/mouseout -->
+    <button class="btn3">마우스를 올려보세요!</button>
+
+    <!-- mousemove -->
+    <div class="box">
+      <p></p>
+    </div>
+
+    <!-- javascript -->
+    <script>
+      // click/dblclick
+      function showMessage1() {
+        document.querySelector("#show").innerHTML = "클릭했어요!";
+      }
+
+      const btn2 = document.querySelector(".btn2");
+      const show = document.querySelector("#show");
+      btn2.addEventListener("dblclick", function () {
+        show.innerHTML = "더블 클릭했어요!";
+      });
+
+      // mouserover/mouseout
+      const btn3 = document.querySelector(".btn3");
+      btn3.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "yellow";
+      });
+      btn3.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "";
+      });
+
+      // mousemove
+      const box = document.querySelector(".box");
+      const p = box.querySelector("p");
+
+      box.addEventListener("mousemove", function (e) {
+        let text = `좌표: (${e.clientX}, ${e.clientY})`;
+        p.innerHTML = text;
+      });
+    </script>
+  </body>
+</html>

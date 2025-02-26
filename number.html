@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number 메서드</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      // toString()
+      let x = 10;
+      let result = x.toString();
+
+      // toFixed()
+      x = 20.456789;
+      result = x.toFixed(3);
+
+      // toPrecision()
+      result = x.toPrecision(3);
+
+      // Number()
+      x = "15";
+      let y = "안녕!";
+
+      //    result = Number(x);
+      result = Number(y);
+
+      // parseInt()
+      x = "10.9345";
+      x = 10.9345;
+      result = parseInt(x);
+
+      // MAX_VALUE 프로퍼티
+      x = Number.MAX_VALUE;
+
+      let text = "";
+      text += `${x} <br>`;
+      text += `${result} <br>`;
+      text += `${typeof x} <br>`;
+      text += `${typeof result} <br>`;
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

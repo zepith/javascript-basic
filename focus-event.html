@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포커스 이벤트</title>
+  </head>
+  <body>
+    이름: <input type="text" id="name" autocomplete="off" autofocus /> <br />
+
+    <!-- onchange 이벤트 -->
+    <label for="">
+      취미:
+      <select name="hobby" id="hb">
+        <option value="">선택</option>
+        <option value="여행">여행</option>
+        <option value="게임">게임</option>
+        <option value="운동">운동</option>
+      </select>
+    </label>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      const input = document.querySelector("#name");
+
+      const changeColor = (color) => {
+        input.style.backgroundColor = color;
+      };
+
+      input.addEventListener("focus", () => {
+        changeColor("yellow");
+      });
+      input.addEventListener("blur", () => {
+        changeColor("blue");
+      });
+
+      // onchange
+      const select = document.querySelector("#hb");
+      select.addEventListener("change", (e) => {
+        document.querySelector(
+          "#show"
+        ).innerHTML = `당신의 취미는 ${e.target.value}입니다!`;
+      });
+    </script>
+  </body>
+</html>

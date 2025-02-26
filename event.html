@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트</title>
+  </head>
+  <body>
+    <!-- 이벤트 핸들러 -->
+    <button onclick="changeText(this)">클릭하세요!</button>
+
+    <!-- 인라인 모델 -->
+    <button onclick="document.getElementById('show').innerHTML = Date()">
+      현재 시간은?
+    </button>
+    <p id="show"></p>
+
+    <!-- 이벤트 리스너 -->
+    <button id="btn">클릭!</button>
+    <p id="show1"></p>
+
+    <!-- javascript -->
+    <script>
+      // 이벤트 핸들러
+      function changeText(elem) {
+        // console.log("클릭했음!!");
+        elem.innerHTML = "OK!";
+      }
+
+      // 이벤트 리스너
+      let text = "";
+      document.getElementById("btn").addEventListener("click", function () {
+        text += "안녕하세요!";
+        document.getElementById("show1").innerHTML = text;
+      });
+    </script>
+  </body>
+</html>

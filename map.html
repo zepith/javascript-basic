@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 객체</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!--java-->
+    <script>
+      // map 객체 생성
+      const fruits = new Map([
+        ["사과", 10],
+        ["오렌지", 20],
+        ["수박", 30],
+      ]);
+
+      // map 객체는 키 "사과"의 값 10
+      // 키 "오렌지"의 값 20
+      // 키 "수박"의 값 30
+      let text = "";
+      fruits.forEach((value, key) => {
+        text += `${key}: ${value} <br>`;
+      });
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메서드</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- 자바스크립트 -->
+    <script>
+      // 객체 dog에 intro()메서드
+      const dog = {
+        name: "흰둥이",
+        species: "믹스",
+        color: "흰색",
+        age: 3,
+        // 메서드 intro()를 정의
+        // 객체 dog를 소개하는 기능을 가지고있다.
+        // this는 객체 dog자체를 의미한다.
+        // intro: function () {
+        // return "나의 이름은" + " " + this.name + "입니다!";
+        // },
+        // 축약형 메서드는 객체 리터럴 문법 안에서만 사용 할 수 있다.
+        intro() {
+          return "나의 이름은" + " " + this.name + "입니다!";
+        },
+      };
+
+      let text;
+      text = dog.intro();
+
+      // 메서드 추가하기
+      dog.getAge = function () {
+        return "나이는" + " " + this.age + "살 입니다!";
+      };
+      text = dog.getAge();
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스 기본 구조</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      class Member {
+        // 1. 생성자 constructor()는 new 연산자에 의해 자동으로 호출되어
+        // 객체의 기본 상태를 설정하는데 사용된다.
+        // this.name은 클래스 member에 의해 생성되는 객체 자신의 프로퍼티를 의미
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        // 2. 클래스 메서드 getName()은 이름은 ###입니다! 란 메시지를 반환
+        getName() {
+          return "이름은" + this.name + "입니다!";
+        }
+      }
+
+      // 3. new 연산자를 이용하여 member1 객체를 생성한다.
+      // 이 때 생성자 constructor()가 자동 호출되어 객체 member1의
+      // 프로퍼티 name과 age는 각각 "홍길동"과 30으로 설정된다.
+      const member1 = new Member("홍길동", 30);
+
+      let text = "";
+      text += member1.name + "<br>";
+      text += member1.getName();
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <p id="show"></p>
+
+    <!-- javascript -->
+    <script>
+      function Member(id, name, age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+      }
+      // 이미 생성된 생성자 함수 Member에 새로운 프로퍼티를 추가할 수 없다!
+      // undefined
+      //    Member.job = "콘텐츠 제작자";
+
+      Member.prototype.job = "콘텐츠 제작자";
+      Member.prototype.getName = function () {
+        return "이름은" + this.name + "입니다!";
+      };
+
+      const member1 = new Member("kdhong", "홍길동", 28);
+
+      let text = "";
+      text += member1.name + "<br>";
+      text += member1.job + "<br>";
+      text += member1.getName();
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>
